@@ -83,3 +83,7 @@ text-shadow: 0 0 10px rgba(18,247,255,0.6),
     color: var(--second-bg-color);
     display: none;
 }
+
+#id{
+    padding: 100px 10%;
+}
