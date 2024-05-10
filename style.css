@@ -279,8 +279,12 @@ a.btn:nth-child(2)::before{
 }
 
 .img-box{
+    text-align: center;
+}
+
+.img-box img{
     width: 100%;
-    max-width: 350px;
+    max-width: 450px;
     height: auto;
 }
 
@@ -297,19 +301,19 @@ a.btn:nth-child(2)::before{
 }
 
 
-
-
-
-
 /*--------------------------------About Section css----------------------------------------------------------*/
 
 .about{
-    display: flex;
     display: flex;
     justify-content: center;
     align-items: center;
     grid-gap: 2em;
     background: var(--second-bg-color);
+}
+
+.about .img-about{
+    text-align: center;
+    position: relative;
 }
 
 .about .img-about img{
@@ -343,17 +347,17 @@ a.btn:nth-child(2)::before{
     margin-bottom: 1.5rem;
 }
 
+.info-about1, 
+.info-about2,
 .info-about3{
     background: var(--bg-color);
-    font-size: 1rem;
+    font-size: .5rem;
     position: absolute;
-    align-content: center;
-    justify-content: center;
     padding: 10px;
-    width: 110px;
-    height: 110px;
+    width: 90px;
+    height: 90px;
     border-radius: 69% 31% 66% 34% / 21% 30% 70% 70% 79%;
-    display: grid;
+    display: block;
     box-shadow: var(--neon-box-shadow);
     border: 1px solid var(--hover-color);
     outline: 2px solid var(--bg-color);
@@ -361,9 +365,20 @@ a.btn:nth-child(2)::before{
     animation: morph 6s linear infinite;
 }
 
-.info-about3 p{
-justify-content: center;
-justify-self: center;
+
+.info-about1{
+    left: 10%;
+    top: 34%;
+    }
+
+.info-about2{
+    left: 66%;
+    top: 15%;
+}
+
+.info-about3{   
+    left: 61%;
+    top: 70%;
 }
 
 .img-about span{
@@ -372,8 +387,8 @@ justify-self: center;
     font-weight: 600;
 } 
 
-/* -------------------------------Services Section------------------------------------------ */
 
+/* -------------------------------Services Section------------------------------------------ */
 .main-text{
     width: 100%;
     text-align: center;
@@ -416,9 +431,11 @@ justify-self: center;
     justify-content: center;
 }
 
+
 .service-box:hover{
     transform: translateY(-0.7rem);
 }
+
 
 .service-icon{
     border: 2px solid var(--hover-color);
@@ -518,15 +535,14 @@ justify-self: center;
 }
 
 /* ---------------------skill right---------------- */
-.porfessional {
+.porfessional{
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
-
 .box{
     position: relative;
-    margin: 10px 0;
+    margin: 10px;
     flex: 1 1 15rem;
 }
 
@@ -536,13 +552,18 @@ justify-self: center;
     font-size: 1rem;
 }
 
-.box .text .big{
+.box .text big{
     font: 400;
     letter-spacing: 1px;
     position: absolute;
     top: 40%;
     left: 50%;
-    transform: translate( -50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.box .text small{
+    display: block;
+    font-weight: 600;
 }
 
 .circle{
@@ -551,22 +572,165 @@ justify-self: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid #fff;
 }
+
+
+.circle .points{
+    width: 2px;
+    height: 10px;
+    background-color: var(--bg-color);
+    position: absolute;
+    border-radius: 3px;
+    transform: rotate(calc(var(--i)*var(--rot))) translateY(-45px);
+}
+
+
+.points.marked{
+    animation: glow 0.04s linear forwards;
+    animation-delay: calc(var(--i)*0.05s);
+}
+
+/*---------------------------Portfolio Section css------------------------------------------------------------ */
+
+.fillter-buttons{
+    margin: 2rem;
+    text-align: center;
+
+}
+
+.fillter-buttons .btn{
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-size: .85rem;
+    font-weight: 600;
+    letter-spacing: .4px;
+    margin-left: 1.3rem;
+    color: var(--text-color);
+}
+
+.fillter-buttons .btn:hover{
+    color: var(--hover-color);
+}
+
+.portfolio-gallery{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 2rem;
+}
+
+.port-box{
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #292e33;
+    display: flex;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    border: 2px solid var(--hover-color);
+    box-shadow: var(--neon-box-shadow);
+}
+
+.port-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.port-image img{
+    width: 100%;
+    opacity: .5s;
+    height: 100%;
+    transition: .5s;
+}
+
+.port-content{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;          /* For Display of Cards*/  
+    background: linear-gradient(rgba(0,0,0,.2), #12f7ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    transition: 0.5s;
+    padding: 0 2rem;
+}
+
+.port-box:hover .port-content{
+    opacity: 1;
+}
+
+.port-box:hover .port-image img{
+    transform: scale(1.1);
+}
+
+.port-content h3{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.port-content p{
+    font-size: 0.8rem;
+    margin: 5px 0 5px 0;
+}
+
+.port-content a{
+    background: #fff;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid var(--hover-color);
+    outline: 2px solid #fff;
+}
+
+.port-content a i{
+    font-size: 1.3rem;
+    color: var(--second-bg-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*---------------------------keyframes------------------------------------------------------------ */
 
 @keyframes morph{
+
     0%, 
     100%{
         border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
     }
+
     30%{
         border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
     }
+
     60%{
         border-radius: 100% 60% 60% 100% / 100% 100% 6  0% 60%;
     }
+
     80%{
         border-radius: 69% 31% 66% 34% / 21% 30% 70% 79%;
     }
@@ -576,6 +740,7 @@ justify-self: center;
     0%{
         width: 0%;        
     }
+    
     100%{
         width: 72%;
     }
@@ -585,6 +750,7 @@ justify-self: center;
     0%{
         width: 0%;        
     }
+
     100%{
         width: 90%;
     }
@@ -594,6 +760,7 @@ justify-self: center;
     0%{
         width: 0%;        
     }
+    
     100%{
         width: 80%;
     }
@@ -603,7 +770,19 @@ justify-self: center;
     0%{
         width: 0%;        
     }
+    
     100%{
         width: 62%;
+    }
+}
+
+@keyframes glow{
+    0%{
+        background: var(--bg-color);
+        box-shadow: none;
+    }
+    100%{
+        background: var(--hover-color);
+        box-shadow: var(--neon-box-shadow);
     }
 }
