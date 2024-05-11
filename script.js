@@ -124,4 +124,18 @@ window.onscroll = ()=>{
     navlist.classList.remove("open");
 }
 
+// Toggle Light/Dark Modes
+document.getElementById('mode-toggle').addEventListener('click', function() {
+    var body = document.body;
+    var icon = this.children[0];
+    
+    body.classList.toggle('light-mode'); // Toggle the dark mode class
+    
+    // Check and switch the icon based on current class
+    if (body.classList.contains('light-mode')) {
+        icon.className = 'bx bx-sun'; // Dark mode icon (filled sun)
+    } else {
+        icon.className = 'bx bxs-sun'; // Light mode icon (empty sun)
+    }
+});
 
