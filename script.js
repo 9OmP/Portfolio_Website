@@ -33,7 +33,6 @@ let changeText = () => {
     currentWordIndex = currentWordIndex === maxWordIndex ? 0 : currentWordIndex + 1;
 };
 
-setInterval(changeText, 3000);
 changeText();
 setInterval(changeText, 3000);
 
