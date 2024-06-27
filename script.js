@@ -34,7 +34,7 @@ let changeText = () => {
 };
 
 changeText();
-setInterval(changeText, 3000);
+setInterval(changeText, 3800);
 
 
 //-------------------circle skill---------------------------------------------------------
